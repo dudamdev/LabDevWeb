@@ -1,0 +1,21 @@
+{
+  "name": "api-x",
+  "version": "0.0.1",
+  "description": "Api da aula de lab web",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio Faria",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.9",
+    "joi": "^17.12.3",
+    "klaw-sync": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
