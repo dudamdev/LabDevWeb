@@ -1,11 +1,8 @@
-const { getProducts, create, findById } = require('./api/v1/product/product-controller');
-const schema = require('./api/v1/product/product-schema');
-
 const klawSync = require('klaw-sync');
 
 const plugins = {
     name: 'routes',
-    version: '1.0.0',
+    version: '1',
     register: async (server, options) => {
 
         const routes = [];
@@ -14,7 +11,7 @@ const plugins = {
             return (file.path.indexOf('-routes.js') > 1);
         }).forEach((_file) => {
             const routeObject = {
-                plugin: require(_file),
+                plugin: require(_file.path),
                 options: {
                     config: options.config
                 }
@@ -27,31 +24,4 @@ const plugins = {
     }
 };
 
-const routes = [
-    {
-        method: "GET",
-        path: "/v1/products",
-        options: {
-            handler: getProducts,
-            validate: schema.getProducts
-        }
-    },
-    {
-        method: "GET",
-        path: "/v1/products/{id}",
-        options: {
-            handler: findById,
-            validate: schema.getById
-        }
-    },
-    {
-        method: "POST",
-        path: "/v1/products",
-        options: {
-            handler: create,
-            validate: schema.createProductsSchema
-        }
-    }
-];
-
-module.exports = routes;
+module.exports = plugins;

@@ -4,11 +4,11 @@ const { options } = require("joi");
 
 const server = Hapi.server({
     port: 5000,
-    host: "0.0.0.0"
+    host: 'localhost'
 });
 
 //add routes path to hapi context
-routes.forEach((path) => server.route(path));
+//routes.forEach((path) => server.route(path));
 
 const plugins = [
     {
